@@ -1,26 +1,27 @@
-import {Canvas} from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 
 function App() {
-    return (
-        <Canvas camera={{position: [0, 2, -6]}} shadows>
-            <mesh position={[-3, 0, 0]}>
-                <boxGeometry/>
-                <meshStandardMaterial color="red"/>
-            </mesh>
-            <mesh position={[0, 0, 0]}>
-                <boxGeometry/>
-                <meshStandardMaterial color="blue"/>
-            </mesh>
-            <mesh position={[3, 0, 0]}>
-                <boxGeometry/>
-                <meshStandardMaterial color="green"/>
-            </mesh>
+  return (
+    <Canvas camera={{ position: [0, 3, 8] }}>
+      {/* Lighting */}
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[0, 3, 5]} intensity={0.5} />
 
-            <ambientLight intensity={0.5}/>
-            <directionalLight position={[0, 0, 3]} intensity={1}/>
-            <directionalLight position={[0, 3, 3]} intensity={0.5}/>
-        </Canvas>
-    );
+      {/* Objects */}
+      <mesh position={[-1, 0, 0]}>
+        <boxGeometry />
+        <meshStandardMaterial color="red" />
+      </mesh>
+      <mesh position={[0, 0, 0]}>
+        <boxGeometry />
+        <meshStandardMaterial color="blue" />
+      </mesh>
+      <mesh position={[1, 0, 0]}>
+        <boxGeometry />
+        <meshStandardMaterial color="green" />
+      </mesh>
+    </Canvas>
+  );
 }
 
 export default App;
